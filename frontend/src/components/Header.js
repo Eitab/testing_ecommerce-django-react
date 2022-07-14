@@ -32,18 +32,18 @@ function Header() {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar variant="Secondary" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
-              <img src={logo} alt="Otaku Shop" />
+              <img src={logo} alt="Toti Beauty shop" height='100' />
             </Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
 
           <Navbar.Collapse id="navbarScroll">
-            <SearchBox />
+            <SearchBox/>
 
             <Nav
               className="ms-auto my-2 my-lg-0"
@@ -52,7 +52,7 @@ function Header() {
             >
               <LinkContainer to="/cart">
                 <Nav.Link>
-                  <i className="fas fa-shopping-cart"></i> Cart
+                  <i className="fa fa-shopping-bag" style={{color:"black"}}></i> Cart
                 </Nav.Link>
               </LinkContainer>
 
@@ -69,7 +69,7 @@ function Header() {
               ) : (
                 <LinkContainer to="/login">
                   <Nav.Link>
-                    <i className="fas fa-user"></i> Login
+                    <i className="fas fa-user" style={{color:"black"}}></i> Login
                   </Nav.Link>
                 </LinkContainer>
               )}

@@ -11,12 +11,12 @@ import Rating from "./Rating";
 
 function Product({ product }) {
   return (
-    <Card className="my-3 p-3 rounded">
+    <Card className="my-3 p-3 rounded border border-4" style={{width:"90%", height:"90%"}}>
       <Link to={`/product/${product._id}`}>
-        <Card.Img src={product.image} />
+        <Card.Img src={product.image} height='200'/>
       </Link>
 
-      <Card.Body>
+      <Card.Body >
         <Link to={`/product/${product._id}`}>
           <Card.Title as="div">
             <strong>{product.name}</strong>
@@ -31,9 +31,11 @@ function Product({ product }) {
           />
         </Card.Text>
 
-        <Card.Text as="h3">₹{product.price}</Card.Text>
+        <Card.Text as="h3">${product.price}</Card.Text>
       </Card.Body>
     </Card>
+
+
   );
 }
 
