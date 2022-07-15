@@ -1,1 +1,7 @@
 /**/env
+
+.idea/
+jenkins.war
+venv
+.pytest_cache
+selenium-server-4.2.2.jar
