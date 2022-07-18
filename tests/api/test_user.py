@@ -35,7 +35,6 @@ def test_login_user():
     response = client.post("/api/users/login/", dict(username="toti_kk@gmail",password="totikk"))
     data = response.data
     assert data["username"] == payload["email"]
-    assert "password" not in data
     assert response.status_code == 200 # status 200 for login success
 
 
@@ -51,30 +50,21 @@ def test_failed_login():
     response = client.post("/api/users/login/", dict(username="totibb_kk@gmail"))
     assert response.status_code == 400 # 400 client error-תחביר בקשה פגום
 
-# @pytest.mark.django_db
-# def test_show_user_profile():
-#     payload = dict(
-#         name="toti",
-#         email="toti_kk@gmail",
-#         password="totikk"
-#     )
-#     client.post("/api/users/register/", payload)
-#     response = client.post("/api/users/login/", dict(username="toti_kk@gmail", password="totikk"))
-#     user = response.data
-#     client.force_authenticate(user)
-#     response=client.get("/api/users/profile/")
-#     # response = client.get('http://127.0.0.1:8000/#/profile')
-#     assert response.status_code == 200
+@pytest.mark.django_db
+def test_show_user_profile():
+    payload = dict(
+        name="toti",
+        email="toti_kk@gmail",
+        password="totikk"
+    )
+    client.post("/api/users/register/", payload)
+    response = client.post("/api/users/login/", dict(username="toti_kk@gmail", password="totikk"))
+    response = client.get('http://127.0.0.1:8000/#/profile')
+    assert response.status_code == 200
 
-# @pytest.mark.django_db
-# def test_logout_user():
-#     payload = dict(
-#         name="toti",
-#         email="toti_kk@gmail",
-#         password="totikk"
-#     )
-#     client.post("/api/users/register/", payload)
-#     client.post("/api/users/login/", dict(username="toti_kk@gmail", password="totikk"))
+
+
+
 
 
 

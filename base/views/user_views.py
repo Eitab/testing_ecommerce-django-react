@@ -20,9 +20,6 @@ from base.models import *
 from base.serializers import UserSerializer,UserSerializerWithToken
 
 
-
-
-
 # JWT Views
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
