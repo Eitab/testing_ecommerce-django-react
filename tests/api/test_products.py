@@ -1,9 +1,5 @@
 import pytest
 
-# @pytest.mark.django_db
-# def test_product_created():
-#   Product.objects.create
-from rest_framework.reverse import reverse
 from django.contrib.auth.models import User
 from base.models import Review
 # from rest_framework.authtoken.admin import User

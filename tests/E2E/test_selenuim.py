@@ -1,29 +1,41 @@
 import time
 import pytest
 from selenium import webdriver
-from selenium.webdriver.firefox import webdriver
+from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.chrome.service import Service as ChromeService
-# from selenium.webdriver.firefox.service import Service as FirefoxService
-from selenium import webdriver
-from selenium.webdriver.firefox.service import Service as firefoxService
+from selenium.webdriver.firefox.options import Options as FireFoxOptions
+from selenium.webdriver.firefox.service import Service as FirefoxService
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
-
+from selenium.webdriver.firefox.service import Service as firefoxService
 
 
 @pytest.fixture()
 def driver():
-    firefox_driver_binary = "tests/E2E/geckodriver.exe"
-    # firefox_driver_binary = "./geckodriver.exe"
+    firefox_driver_binary = "./geckodriver.exe"
     ser_firefox = firefoxService(firefox_driver_binary)
-    driver = webdriver.Firefox(service=ser_firefox)
 
+    browser_name = 'firefox'
+    if browser_name == "firefox":
+        driver = webdriver.Firefox(service=ser_firefox)
+    elif browser_name == "firefox":
+        dc = {
+            "browserName": "firefox",
+            "platformName": "Windows 11"
+        }
+        driver = webdriver.Remote("http://localhost:4444", desired_capabilities=dc)
+
+    elif browser_name == "chrome":
+        dc = {
+            "browserName": "chrome",
+            "platformName": "Windows 11"
+        }
+        driver = webdriver.Remote("http://localhost:4444", desired_capabilities=dc)
 
     yield driver
     driver.close()
-
 def test_registration(driver):
     driver.get("http://localhost:8000/")
     driver.maximize_window()
