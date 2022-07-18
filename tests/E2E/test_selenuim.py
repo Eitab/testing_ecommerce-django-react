@@ -56,7 +56,7 @@ def test_success_login(driver):
     driver.get("http://localhost:8000/")
     driver.maximize_window()
     driver.find_element(By.CSS_SELECTOR, "#navbarScroll > div > a:nth-child(2)").click() #login link
-    driver.find_element(By.CSS_SELECTOR, "#email").send_keys("nana79501@hotmail.com")  # email
+    driver.find_element(By.CSS_SELECTOR, "#email").send_keys("nana43287654@hotmail.com")  # email
     driver.find_element(By.CSS_SELECTOR, "#password").send_keys("bbbbggggg")
     element = driver.find_element(By.CSS_SELECTOR, "#root > div > main > div > div > div > form > button")
     driver.execute_script("arguments[0].click();", element)
@@ -66,30 +66,29 @@ def test_success_login(driver):
     assert "NANCY" == user_name
 
 
-def test_buy_product(driver):
-    driver.get("http://127.0.0.1:8000/")
-    driver.maximize_window()
-    time.sleep(2)
-    driver.find_element(By.CSS_SELECTOR, "#navbarScroll > div > a:nth-child(2)").click() # login link
-    driver.find_element(By.CSS_SELECTOR, "#email").send_keys("toti_loti@hotmail.com")  # email
-    driver.find_element(By.CSS_SELECTOR, "#password").send_keys("totiloti")
-    element = driver.find_element(By.CSS_SELECTOR, "#root > div > main > div > div > div > form > button")
-    driver.execute_script("arguments[0].click();", element)
-    time.sleep(3)
-    driver.find_element(By.CSS_SELECTOR,"#root > div > main > div > div:nth-child(3) > div > div:nth-child(1) > div > a").click()
-    time.sleep(3)
-    driver.find_element(By.CSS_SELECTOR,".w-100").click() # add to cart
-    time.sleep(3)
-    driver.find_element(By.CSS_SELECTOR, ".w-100").click() # procced to checkout
-    driver.find_element(By.CSS_SELECTOR, "#address").send_keys("Hertzel")
-    driver.find_element(By.CSS_SELECTOR, "#city").send_keys("akko")
-    driver.find_element(By.CSS_SELECTOR, "#postalCode").send_keys("2420706")
-    driver.find_element(By.CSS_SELECTOR, "#country").send_keys("Israel")
-    shipping_ele = driver.find_element(By.CSS_SELECTOR, "#root > div > main > div > div > div > form > button")
-    driver.execute_script("arguments[0].click();", shipping_ele) #continue
-    payment_ele = driver.find_element(By.CSS_SELECTOR, "#root > div > main > div > div > div > form > button")
-    driver.execute_script("arguments[0].click();", payment_ele)
-    driver.find_element(By.CSS_SELECTOR,
-                        "#root > div > main > div > div.row > div.col-md-4 > div > div > div:nth-child(7) > button").click()
-
-
+# def test_buy_product(driver):
+#     driver.get("http://127.0.0.1:8000/")
+#     driver.maximize_window()
+#     time.sleep(2)
+#     driver.find_element(By.CSS_SELECTOR, "#navbarScroll > div > a:nth-child(2)").click() # login link
+#     driver.find_element(By.CSS_SELECTOR, "#email").send_keys("toti_loti@hotmail.com")  # email
+#     driver.find_element(By.CSS_SELECTOR, "#password").send_keys("totiloti")
+#     element = driver.find_element(By.CSS_SELECTOR, "#root > div > main > div > div > div > form > button")
+#     driver.execute_script("arguments[0].click();", element)
+#     time.sleep(3)
+#     driver.find_element(By.CSS_SELECTOR,"#root > div > main > div > div:nth-child(3) > div > div:nth-child(1) > div > a").click()
+#     time.sleep(3)
+#     driver.find_element(By.CSS_SELECTOR,".w-100").click() # add to cart
+#     time.sleep(3)
+#     driver.find_element(By.CSS_SELECTOR, ".w-100").click() # procced to checkout
+#     driver.find_element(By.CSS_SELECTOR, "#address").send_keys("Hertzel")
+#     driver.find_element(By.CSS_SELECTOR, "#city").send_keys("akko")
+#     driver.find_element(By.CSS_SELECTOR, "#postalCode").send_keys("2420706")
+#     driver.find_element(By.CSS_SELECTOR, "#country").send_keys("Israel")
+#     shipping_ele = driver.find_element(By.CSS_SELECTOR, "#root > div > main > div > div > div > form > button")
+#     driver.execute_script("arguments[0].click();", shipping_ele) #continue
+#     payment_ele = driver.find_element(By.CSS_SELECTOR, "#root > div > main > div > div > div > form > button")
+#     driver.execute_script("arguments[0].click();", payment_ele)
+#     driver.find_element(By.CSS_SELECTOR,
+#                         "#root > div > main > div > div.row > div.col-md-4 > div > div > div:nth-child(7) > button").click()
+#
