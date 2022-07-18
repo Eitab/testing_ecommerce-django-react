@@ -15,8 +15,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 @pytest.fixture()
 def driver():
-    # firefox_driver_binary = "tests/E2E/geckodriver.exe"
-    firefox_driver_binary = "./geckodriver.exe"
+    firefox_driver_binary = "tests/E2E/geckodriver.exe"
+    # firefox_driver_binary = "./geckodriver.exe"
     ser_firefox = firefoxService(firefox_driver_binary)
     driver = webdriver.Firefox(service=ser_firefox)
 
