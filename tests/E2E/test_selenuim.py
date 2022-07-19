@@ -7,7 +7,6 @@ from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.options import Options as FireFoxOptions
 from selenium.webdriver.firefox.service import Service as FirefoxService
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -63,7 +62,7 @@ def test_registration(driver):
     driver.find_element(By.CSS_SELECTOR,'#navbarScroll > div > a:nth-child(2)').click() #login link
     driver.find_element(By.CSS_SELECTOR,"#root > div > main > div > div > div > div > div > a").click() #register
     driver.find_element(By.CSS_SELECTOR, "#name").send_keys("nancy") #name
-    driver.find_element(By.CSS_SELECTOR, "#email").send_keys("nanH3@hotmail.com") #email
+    driver.find_element(By.CSS_SELECTOR, "#email").send_keys("rana@hotmail.com") #email
     driver.find_element(By.CSS_SELECTOR, "#password").send_keys("bbbbggggg")
     driver.find_element(By.CSS_SELECTOR, "#passwordConfirm").send_keys("bbbbggggg")
     element = driver.find_element(By.CSS_SELECTOR, "#root > div > main > div > div > div > form > button")
