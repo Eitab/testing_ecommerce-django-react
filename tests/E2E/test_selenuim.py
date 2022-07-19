@@ -56,14 +56,14 @@ def driver():
     yield driver
     driver.close()
 
-
+#positive
 def test_registration(driver):
     driver.get("http://localhost:8000/")
     driver.maximize_window()
     driver.find_element(By.CSS_SELECTOR,'#navbarScroll > div > a:nth-child(2)').click() #login link
     driver.find_element(By.CSS_SELECTOR,"#root > div > main > div > div > div > div > div > a").click() #register
     driver.find_element(By.CSS_SELECTOR, "#name").send_keys("nancy") #name
-    driver.find_element(By.CSS_SELECTOR, "#email").send_keys("nana1976543@hotmail.com") #email
+    driver.find_element(By.CSS_SELECTOR, "#email").send_keys("nanH3@hotmail.com") #email
     driver.find_element(By.CSS_SELECTOR, "#password").send_keys("bbbbggggg")
     driver.find_element(By.CSS_SELECTOR, "#passwordConfirm").send_keys("bbbbggggg")
     element = driver.find_element(By.CSS_SELECTOR, "#root > div > main > div > div > div > form > button")
@@ -73,6 +73,27 @@ def test_registration(driver):
     time.sleep(5)
     assert "NANCY"==user_name
 
+
+#negative
+def test_wrong_pass_registration(driver):
+    driver.get("http://localhost:8000/")
+    driver.maximize_window()
+    driver.find_element(By.CSS_SELECTOR,'#navbarScroll > div > a:nth-child(2)').click() #login link
+    driver.find_element(By.CSS_SELECTOR,"#root > div > main > div > div > div > div > div > a").click() #register
+    driver.find_element(By.CSS_SELECTOR, "#name").send_keys("dodo") #name
+    driver.find_element(By.CSS_SELECTOR, "#email").send_keys("ddo@hotmail.com") #email
+    driver.find_element(By.CSS_SELECTOR, "#password").send_keys("b123")
+    driver.find_element(By.CSS_SELECTOR, "#passwordConfirm").send_keys("123")
+    element = driver.find_element(By.CSS_SELECTOR, "#root > div > main > div > div > div > form > button")
+    driver.execute_script("arguments[0].click();", element)
+    time.sleep(2)
+    pswd_err=driver.find_element(By.CSS_SELECTOR,".fade").text
+    time.sleep(2)
+    assert "Passwords do not match"==pswd_err
+
+
+
+#positive
 def test_success_login(driver):
     driver.get("http://localhost:8000/")
     driver.maximize_window()
