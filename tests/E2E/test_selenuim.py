@@ -62,7 +62,7 @@ def test_registration(driver):
     driver.find_element(By.CSS_SELECTOR,'#navbarScroll > div > a:nth-child(2)').click() #login link
     driver.find_element(By.CSS_SELECTOR,"#root > div > main > div > div > div > div > div > a").click() #register
     driver.find_element(By.CSS_SELECTOR, "#name").send_keys("nancy") #name
-    driver.find_element(By.CSS_SELECTOR, "#email").send_keys("lamax@hotmail.com") #email
+    driver.find_element(By.CSS_SELECTOR, "#email").send_keys("loaii@hotmail.com") #email
     driver.find_element(By.CSS_SELECTOR, "#password").send_keys("bbbbggggg")
     driver.find_element(By.CSS_SELECTOR, "#passwordConfirm").send_keys("bbbbggggg")
     element = driver.find_element(By.CSS_SELECTOR, "#root > div > main > div > div > div > form > button")
