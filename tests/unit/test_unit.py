@@ -15,7 +15,7 @@ Unit tests -> checking user creation func
 def test_user_create():
     User.objects.create_user('tatocc','nancy@gmail.com','tato cac')
     count = User.objects.all().count()
-    assert count == 0
+    assert count == 1
 
 @pytest.fixture()
 def user_1(db):
